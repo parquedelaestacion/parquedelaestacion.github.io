@@ -3,194 +3,258 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guía de semillas nativas.</title>
+    <title>El Parque de la Estación</title>
     <style>
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
-        font-family: "Segoe UI", sans-serif;
-        background-color: #f3f4f6;
-        color: #1f2937;
+        font-family: 'Montserrat', 'Segoe UI', sans-serif;
+        background: #e8f5e9;
+        color: #234e2e;
       }
-
+      .header {
+        background: #43a047;
+        color: #fff;
+        padding: 1.5rem 0 1rem 0;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(67,160,71,0.08);
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+      }
+      .header p {
+        margin: 0.5rem 0 0 0;
+        font-size: 1.1rem;
+        font-weight: 400;
+      }
+      .carousel-wrapper {
+        max-width: 900px;
+        margin: 2rem auto 0 auto;
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(67,160,71,0.10);
+        background: #fff;
+      }
       .carousel {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        white-space: nowrap;
+        transition: transform 0.5s cubic-bezier(.77,0,.18,1);
+        width: 100%;
       }
-
       .carousel img {
-        min-width: 100%;
-        height: auto;
-        scroll-snap-align: center;
+        width: 100%;
+        flex: 0 0 100%;
+        height: 500px;
         object-fit: cover;
-        display: block;
+        border: none;
+        background: #e0f7fa;
       }
-
+      .carousel-controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+      .carousel-btn {
+        background: rgba(67,160,71,0.85);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        pointer-events: all;
+        box-shadow: 0 2px 8px rgba(67,160,71,0.15);
+        transition: background 0.2s;
+      }
+      .carousel-btn:hover {
+        background: #388e3c;
+      }
       .container {
         padding: 2rem;
-        max-width: 800px;
-        margin: auto;
+        max-width: 900px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 2px 16px rgba(67,160,71,0.08);
       }
-
-      h1,
       h2 {
-        color: #065f46;
-      }
-
-      h1 {
-        font-size: 1.8rem;
+        color: #388e3c;
+        font-size: 1.5rem;
+        margin-top: 2rem;
         margin-bottom: 1rem;
       }
-
-      h2 {
-        font-size: 1.4rem;
-        margin-top: 2rem;
-      }
-
       p {
         margin-bottom: 1rem;
+        font-size: 1.08rem;
+        line-height: 1.7;
       }
-
       .cta {
-        display: block;
-        background-color: #10b981;
+        display: inline-block;
+        background-color: #43a047;
         color: white;
-        padding: 0.8rem 1.2rem;
+        padding: 0.8rem 1.6rem;
         border-radius: 8px;
         text-decoration: none;
         font-weight: bold;
         margin: 1rem 0 2rem 0;
         text-align: center;
+        box-shadow: 0 2px 8px rgba(67,160,71,0.10);
+        transition: background 0.2s;
+      }
+      .cta:hover {
+        background: #388e3c;
       }
       .destacado {
-        color: #065f46;
+        color: #388e3c;
         font-weight: 600;
-        font-size: 1.05rem;
+        font-size: 1.12rem;
         margin: 1.2rem 0;
+        background: #dcedc8;
+        padding: 0.9rem 1.2rem;
+        border-radius: 12px;
+        display: inline-block;
+        border: 1.5px solid #43a047;
+        box-shadow: 0 2px 8px rgba(67,160,71,0.08);
       }
-
       .footer {
         margin-top: 3rem;
-        font-size: 0.9rem;
-        color: #6b7280;
+  font-size: 1rem;
+        color: #388e3c;
+        text-align: center;
+        background: #dcedc8;
+        padding: 1.2rem 0 1.2rem 0;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(67,160,71,0.08);
+        border: 1.5px solid #43a047;
+  display: block;
+      }
+      @media (max-width: 600px) {
+        .carousel img {
+          height: auto;
+          max-height: 55vw;
+          object-fit: contain;
+        }
+        .container {
+          padding: 1rem;
+        }
+        .redes-parque {
+          display: block;
+          text-align: center;
+        }
+        .redes-link {
+          display: block;
+          margin-top: 0.5em;
+          justify-content: center;
+        }
+      }
+
+      .redes-parque {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        font-size: 1.08rem;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+      }
+      .redes-link {
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+        color: #388e3c;
+        text-decoration: none;
+        font-weight: 600;
+        word-break: break-word;
       }
     </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- Carrusel táctil real -->
-    <div class="carousel">
-      <img src="1.png" alt="Foto 1" />
-      <img src="2.png" alt="Foto 2" />
-      <img src="3.png" alt="Foto 3" />
-      <img src="4.png" alt="Foto 4" />
+  <div class="header" style="background: #43a047; box-shadow:0 2px 8px rgba(67,160,71,0.18); padding-bottom:1.2rem;">
+  <img src="logo.jpg" alt="Parque de la Estación" style="max-width:320px; width:90vw; min-width:120px; height:auto; display:block; margin:0.7rem auto 0.7rem auto; border-radius:10px; box-shadow:0 4px 24px rgba(67,160,71,0.18); border:2px solid #43a047; background:#fff;">
+  <p style="color:#fff; font-family:'Quicksand', 'Montserrat', sans-serif; font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; text-shadow:0 2px 8px rgba(67,160,71,0.18);">Comunidad, naturaleza y participación</p>
     </div>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="carousel">
 
+        <img src="imagenes/0-0.jpeg" alt="Foto 1" />
+        <img src="imagenes/4.jpeg" alt="Historia 4" />
+        <img src="imagenes/2.jpeg" alt="Historia 2" />
+        <img src="imagenes/5.jpeg" alt="Historia 5" />
+        <img src="imagenes/3.jpeg" alt="Historia 3" />
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="Anterior">&#8592;</button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Siguiente">&#8594;</button>
+      </div>
+    </div>
     <div class="container">
-      <h1>Guía para sembrar especies nativas!</h1>
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos un colectivo vecinal que en el año 2000 nos subimos al tren de nuestro “Parque de la Estación”. En ese entonces estos terrenos ferroviarios tenían muros y no eran accesibles, no había plantas ni participación. Nos atrevimos a soñar canteros de flora nativa, mariposas, pájaros, juegos, biblioteca y un lugar para compartir y construir comunidad.</p>
+      <p>Transcurrimos 16 años golpeando puertas en la legislatura, pintamos los paredones de colores alegres diciendo “Acá queremos un parque”, jugamos en la calle, organizamos ferias, juntamos firmas, nos organizamos y cada una de esas acciones nos acercó más al proyecto.</p>
+      <p>En el año 2016 caminamos los pasillos de la legislatura para contar Nuestro Parque en la audiencia “Proyecto Parque de La Estación”. Fue un día de diciembre muy caluroso e inolvidable, fue alegría hasta las lágrimas, puro corazón y construcción. Fue un Sí por unanimidad y la Ley 5734/16 Parque de la Estación lo confirma.</p>
+      <p style="text-align: center;">
 
-      <p>
-        En el taller de Jardinería Nativa del Parque de la Estación recolectamos semillas de timbó, espinillo y sen de campo. Te contamos
-        qué tiene de especial cada uno y cómo sembrarlos.
+  <img src="historia/parque.jpeg" style="max-width:100%; height:auto; display:block; margin:auto; border-radius:10px; box-shadow:0 2px 12px rgba(67,160,71,0.10); background:#fff;" />
       </p>
-
-      <p>
-        Deslizá para conocerlas y animarte a multiplicarlas en casa, en tu
-        vereda o en tu barrio.
-      </p>
-
-      <h2>1. Timbó (Enterolobium contortisiliquum)</h2>
-      <p>
-        Árbol de gran porte, ideal para parques y avenidas.<br />
-        Florece en primavera. Las semillas se recolectan en invierno.<br />
-        Prefiere suelos bajos y húmedos, protegidos de heladas.<br />
-        Se siembra en primavera. Germina fácil y crece rápido.<br />
-        Es melífero y atrae insectos polinizadores.
-      </p>
-
-      <h2>2. Espinillo / Aromo (Vachellia caven / Acacia caven)</h2>
-      <p>
-        Árbol resistente, de flores amarillas muy perfumadas.<br />
-        Florece a fines del invierno.<br />
-        Las semillas se recolectan en otoño e invierno.<br />
-        Tolera sequía y heladas.<br />
-        Se siembra en primavera u otoño.<br />
-        Aporta polen y néctar. Atrae aves y mariposas.
-      </p>
-
-      <h2>3. Sen de campo (Senna corymbosa)</h2>
-      <p>
-        Arbusto de flores amarillas. Se usa como ornamental y medicinal.<br />
-        Florece a fines del verano y en otoño.<br />
-        Las semillas se recolectan entre otoño e invierno.<br />
-        Crece rápido, aunque su vida es corta.<br />
-        Se siembra en primavera u otoño.<br />
-        Atrae mariposas como la limoncito.
-      </p>
-
-      <p>
-        <strong>Elegí nativas.</strong> Atraen mariposas, aves y polinizadores,
-        y se adaptan mejor a nuestro suelo y clima.
-      </p>
+      <p>Pasamos muchas situaciones, en este recorrido aprendimos y nos vamos fortaleciendo. Hoy cogestionamos este hermoso espacio verde, nos encontramos para hacer jardinería, tomar mate, jugar ajedrez, hacer teatro, cantar y muchas actividades más.</p>
+      <p>¿Sabías que todavía falta la construcción del sector que da a la calle Bartolomé Mitre?</p>
+      <p>Las puertas de este colectivo “Vecinos del Parque de la Estación” están abiertas. Te esperamos a seguir construyendo este sueño.</p>
       <div>
         <span class="destacado">
-          En la siguiente guía encontrarás cuándo cosechar y sembrar semillas de
-          otras especies nativas, y los pasos para germinarlas.
+          En la siguiente guía vas a encontrar información sobre plantas nativas:
+          <ul>
+            <li><strong>Cuándo cosechar y sembrar semillas</strong></li>
+            <li><strong>Pasos para germinar semillas</strong></li>
+            <li><strong>Cuidados básicos de plantines</strong></li>
+
         </span>
-        <a href="infografia_semillas.pdf" class="cta" target="_blank"
-          >Descargar guía de siembra en PDF</a
-        >
+        <br>
+        <a href="semillas_plantines_nativos.pdf" class="cta" target="_blank">Descargar guía de siembra de nativas en PDF</a>
+        
       </div>
-      <div>
-        <p
-          style="
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4em;
-            font-size: 1rem;
-            margin: 1rem 0;
-          "
-        >
+
+      <p><strong>Elegí plantas nativas.</strong> Atraen mariposas, aves y polinizadores, y se adaptan mejor a nuestro suelo y clima.</p>
+      <div style="margin-top:2rem;">
+        <p class="redes-parque">
           Podés seguir las redes del parque en
-          <a
-            href="https://www.instagram.com/elparquedelaestacion/"
-            target="_blank"
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 0.3em;
-              color: #065f46;
-              text-decoration: none;
-              font-weight: 600;
-            "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="#065f46"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.33 3.608 1.304.975.974 1.242 2.241 1.304 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.33 2.633-1.304 3.608-.974.975-2.241 1.242-3.608 1.304-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.33-3.608-1.304-.975-.974-1.242-2.241-1.304-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.849c.062-1.366.33-2.633 1.304-3.608C4.512 2.563 5.779 2.296 7.145 2.234 8.41 2.175 8.79 2.163 12 2.163zm0-2.163C8.741 0 8.332.012 7.052.07 5.616.132 4.26.465 3.124 1.601 1.989 2.736 1.656 4.092 1.593 5.528.535 6.809.523 7.218.523 12s.012 5.191.07 6.472c.063 1.436.396 2.792 1.531 3.928 1.135 1.135 2.491 1.468 3.927 1.531 1.281.058 1.69.07 6.472.07s5.191-.012 6.472-.07c1.436-.063 2.792-.396 3.927-1.531 1.135-1.135 1.468-2.491 1.531-3.927.058-1.281.07-1.69.07-6.472s-.012-5.191-.07-6.472c-.063-1.436-.396-2.792-1.531-3.927C20.792.465 19.436.132 18 .07 16.719.012 16.31 0 12 0z"
-              />
-              <path
-                d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"
-              />
+          <a href="https://www.instagram.com/elparquedelaestacion/" target="_blank" class="redes-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#388e3c" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.33 3.608 1.304.975.974 1.242 2.241 1.304 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.33 2.633-1.304 3.608-.974.975-2.241 1.242-3.608 1.304-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.33-3.608-1.304-.975-.974-1.242-2.241-1.304-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.849c.062-1.366.33-2.633 1.304-3.608C4.512 2.563 5.779 2.296 7.145 2.234 8.41 2.175 8.79 2.163 12 2.163zm0-2.163C8.741 0 8.332.012 7.052.07 5.616.132 4.26.465 3.124 1.601 1.989 2.736 1.656 4.092 1.593 5.528.535 6.809.523 7.218.523 12s.012 5.191.07 6.472c.063 1.436.396 2.792 1.531 3.928 1.135 1.135 2.491 1.468 3.927 1.531 1.281.058 1.69.07 6.472.07s5.191-.012 6.472-.07c1.436-.063 2.792-.396 3.927-1.531 1.135-1.135 1.468-2.491 1.531-3.927.058-1.281.07-1.69.07-6.472s-.012-5.191-.07-6.472c-.063-1.436-.396-2.792-1.531-3.927C20.792.465 19.436.132 18 .07 16.719.012 16.31 0 12 0z"/>
+              <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/>
               <circle cx="18.406" cy="5.594" r="1.44" />
             </svg>
             @elparquedelaestacion
           </a>
         </p>
       </div>
-
       <div class="footer">
-        #ambienteyecologia &nbsp; #PlantasNativas &nbsp; #Jardineria
+        #ambienteyecologia &nbsp; #PlantasNativas &nbsp; #ParqueDeLaEstación
       </div>
     </div>
+    <script>
+      const carousel = document.getElementById('carousel');
+      const images = carousel.querySelectorAll('img');
+      let currentIndex = 0;
+      function showImage(idx) {
+        carousel.style.transform = `translateX(-${idx * 100}%)`;
+      }
+      document.getElementById('prevBtn').onclick = function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      };
+      document.getElementById('nextBtn').onclick = function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      };
+      showImage(currentIndex);
+    </script>
   </body>
 </html>
